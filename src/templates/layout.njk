@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8" />
+        {# <link rel="stylesheet" href="/public/style.css" type="text/css" /> #}
+    </head>
+    <style>
+    :root {
+        margin:0px;
+    }
+    .layout {
+        height:100vh;
+        width:100vw;
+        background-color: black;
+    }
+
+    .sec-1 {
+        width:100%;
+        display:flex;
+        justify-content:center;
+    }
+    </style>
+    <body class='layout'>
+        <section class='sec-1'>
+            {% block sec1 %}
+                {% include "index.njk" %}}
+            {% endblock %}
+        </section>
+    </body>
+</html>

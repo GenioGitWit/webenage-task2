@@ -1,0 +1,31 @@
+<div class='item-cont'>
+    <h3><em>Name</em>: {{ item.name }}</h3>
+    <h4><em>Username</em>: {{ item.username }}</h4>
+    <h4>
+        {% set regExp = r/.*\.biz$/g %}
+        {% if regExp.test(item.email) %}
+            <em>Email</em>: {{item.email}}
+        {% else %}
+            <em>Email</em>: {{'Not matched!'}}
+        {% endif %}
+
+    </h4>
+    <div class='address'>
+        <h2>Address<h2>
+        <ul>
+            {% set add = item.address %}
+            {% set city = item.address.city %}
+            {%if (city == "Aliyaview" or city=="Howemouth" or city=="Gwenborough") %}
+                <p>The zipcode and cityname <em>{{item.address.zipcode}}</em> is <em>{{item.address.city}}</em> with lat <em>{{item.address.geo.lat}}</em>  and long <em>{{item.address.geo.lng}}</em></p>
+            {% else%}
+                <li><em>street</em>: {{item.address.street}}</li>
+                <li><em>suite</em>: {{item.address.suite}}</li>
+                <li><em>city</em>: {{item.address.city}}</li>
+                <li><em>zipcode</em>: {{item.address.zipcode}}</li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class='catchphrase'>
+        {{ item.company.catchPhrase | truncate(15) }}
+    </div>
+</div>

@@ -1,0 +1,57 @@
+
+<div>
+    {# {% extends 'layout.njk'%} #}
+    {% block sec1 %}
+    <style>
+        .cont-1 {
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-within;
+            padding:0;
+        }
+
+        .item-cont {
+            display:flex;
+            margin:1rem;
+            flex-direction:column;
+            text-align:center;
+            width:20rem;
+            height:calc(auto+'2rem');
+            border:1px solid white;
+            color:aqua;
+            
+        }
+
+        em {
+            color:orange;
+        }
+
+        li {
+            font-size:18px;
+        }
+
+        p {
+            font-size:16px;
+        }
+
+        .address {
+            color:#00000f;
+            background-color:grey;
+        }
+
+        .catchphrase {
+            background:#694604;
+        }
+
+    </style>
+    <div class='cont-1'>
+            {% for item in data %}
+                {%if item.id%2==0 %}
+                    {% include "itemEven.njk" %}
+                {% else %}
+                    {% include "itemOdd.njk"%}}
+                {% endif %}}
+            {% endfor %}
+    </div>
+    {%endblock%}
+</div>
